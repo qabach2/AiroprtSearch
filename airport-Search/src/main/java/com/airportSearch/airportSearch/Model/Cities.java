@@ -2,8 +2,7 @@ package com.airportSearch.airportSearch.Model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -13,6 +12,8 @@ import javax.persistence.Table;
 @ToString
 @Table(name = "Cities")
 public class Cities {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     private String  name;
 
@@ -35,5 +36,13 @@ public class Cities {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Cities{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

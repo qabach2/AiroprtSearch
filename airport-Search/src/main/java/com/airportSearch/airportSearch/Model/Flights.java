@@ -1,9 +1,19 @@
 package com.airportSearch.airportSearch.Model;
 
-import javax.persistence.Entity;
+import lombok.*;
 
+import javax.persistence.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
+@ToString
+@Table(name = "Flights")
 public class Flights {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String departure_City;
     private String arrival_city;
@@ -56,6 +66,17 @@ public class Flights {
 
     public void setArrival_time(int arrival_time) {
         this.arrival_time = arrival_time;
+    }
+
+    @Override
+    public String toString() {
+        return "Flights{" +
+                "id=" + id +
+                ", departure_City='" + departure_City + '\'' +
+                ", arrival_city='" + arrival_city + '\'' +
+                ", departure_time=" + departure_time +
+                ", arrival_time=" + arrival_time +
+                '}';
     }
 }
 
