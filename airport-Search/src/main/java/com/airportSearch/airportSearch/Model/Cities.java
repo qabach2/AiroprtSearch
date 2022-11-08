@@ -1,18 +1,27 @@
 package com.airportSearch.airportSearch.Model;
 
-import javax.persistence.Entity;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Builder
+@ToString
+@Table(name = "Cities")
 public class Cities {
-    private  Integer Id;
+    private  int Id;
     private String  Name;
 
-    public Cities(Integer id, String name) {
+    public Cities(int id, String name) {
         Id = id;
         Name = name;
     }
 
-    public Integer getId() {
+    public int getId() {
         return Id;
     }
 
