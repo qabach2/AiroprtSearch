@@ -4,37 +4,58 @@ import javax.persistence.Entity;
 
 @Entity
 public class Flights {
-    private Integer Id;
-    private String Name;
-    private String Type;
+    private int id;
+    private String departure_City;
+    private String arrival_city;
+    private int departure_time;
+    private int arrival_time;
 
-    public Flights(Integer id, String name, String type) {
-        Id = id;
-        Name = name;
-        Type = type;
+    public Flights(int id, String departure_City, String arrival_city, int departure_time, int arrival_time) {
+        this.id = id;
+        this.departure_City = departure_City;
+        this.arrival_city = arrival_city;
+        this.departure_time = departure_time;
+        this.arrival_time = arrival_time;
     }
 
-    public Integer getId() {
-        return Id;
+    public int getId() {
+        return id;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getDeparture_City() {
+        return departure_City;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setDeparture_City(String departure_City) {
+        this.departure_City = departure_City;
     }
 
-    public String getType() {
-        return Type;
+    public String getArrival_city() {
+        return arrival_city;
     }
 
-    public void setType(String type) {
-        Type = type;
+    public void setArrival_city(String arrival_city) {
+        this.arrival_city = arrival_city;
+    }
+
+    public int getDeparture_time() {
+        return departure_time;
+    }
+
+    public void setDeparture_time(int departure_time) {
+        this.departure_time = departure_time;
+    }
+
+    public int getArrival_time() {
+        return arrival_time;
+    }
+
+    public void setArrival_time(int arrival_time) {
+        this.arrival_time = arrival_time;
     }
 }
+
