@@ -21,11 +21,11 @@ public  List <Flights> getAllFlights(){
     return flightsService.getAllFlights();
 }
 @GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCity(String name){
+    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
     return flightsService.getFlightByDepartureCity(name);
     }
     @GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCityAndArrivalCity(String name){
+    public List <Flights> getFlightByDepartureCityAndArrivalCity(@PathVariable ("name") String name){
         return flightsService.getFlightByDepartureCityAndArrivalCity(name);
     }
 }
