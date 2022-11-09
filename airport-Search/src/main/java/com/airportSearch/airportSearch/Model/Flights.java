@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "Flights")
 public class Flights {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String departure_City;
