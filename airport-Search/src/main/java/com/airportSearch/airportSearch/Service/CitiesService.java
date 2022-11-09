@@ -1,21 +1,19 @@
 package com.airportSearch.airportSearch.Service;
 
-import com.airportSearch.airportSearch.DAO.CitiesRepository;
-import com.airportSearch.airportSearch.DAO.FlightsRepository;
+
 import com.airportSearch.airportSearch.Model.Cities;
 import com.airportSearch.airportSearch.Model.Flights;
-import com.airportSearch.airportSearch.repositories.CitiesRepo;
+import com.airportSearch.airportSearch.Repositories.CitiesRepository;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CitiesService {
-	private final CitiesRepo CR;
+	private final CitiesRepository CR;
 	
-	public CitiesService(CitiesRepo CR) {
+	public CitiesService(CitiesRepository CR) {
 		this.CR = CR;
 	}
 	

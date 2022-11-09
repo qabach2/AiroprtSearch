@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -19,6 +20,11 @@ public  FlightsController(FlightsService flightsService){
 @GetMapping
 public  List <Flights> getAllFlights(){
     return flightsService.getAllFlights();
+}
+@GetMapping({"/id"})
+public Optional<Flights> findByFlightId(@PathVariable ("id") int id){
+    return flightsService.findByFlightId(id);
+
 }
 //@GetMapping("/{name}")
 //    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
