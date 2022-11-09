@@ -20,7 +20,7 @@ public class Cities {
     @Column
     private String  name;
 
-    @OneToMany(mappedBy = "cities", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "Cities", cascade = CascadeType.ALL)
     private List<Flights> flights;
     public Cities(int id, String name) {
         this.id = id;

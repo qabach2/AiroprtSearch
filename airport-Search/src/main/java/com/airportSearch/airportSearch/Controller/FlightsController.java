@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -20,12 +21,17 @@ public  FlightsController(FlightsService flightsService){
 public  List <Flights> getAllFlights(){
     return flightsService.getAllFlights();
 }
-@GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
-    return flightsService.getFlightByDepartureCity(name);
-    }
-    @GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCityAndArrivalCity(@PathVariable ("name") String name){
-        return flightsService.getFlightByDepartureCityAndArrivalCity(name);
-    }
+@GetMapping({"/id"})
+public Optional<Flights> findByFlightId(@PathVariable ("id") int id){
+    return flightsService.findByFlightId(id);
+
+}
+//@GetMapping("/{name}")
+//    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
+//    return flightsService.getFlightByDepartureCity(name);
+//    }
+// @GetMapping("/{name}")
+//    public List <Flights> getFlightByArrivalCity(@PathVariable ("name") String name){
+//        return flightsService.getFlightByArrivalCity(name);
+//    }
 }

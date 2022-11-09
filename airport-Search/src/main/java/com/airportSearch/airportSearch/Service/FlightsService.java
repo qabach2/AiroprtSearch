@@ -1,10 +1,9 @@
 package com.airportSearch.airportSearch.Service;
 
-import com.airportSearch.airportSearch.DAO.CitiesRepository;
-import com.airportSearch.airportSearch.DAO.FlightsRepository;
+
 import com.airportSearch.airportSearch.Model.Flights;
-import com.airportSearch.airportSearch.repositories.CitiesRepo;
-import com.airportSearch.airportSearch.repositories.FlightsRepo;
+import com.airportSearch.airportSearch.Repositories.CitiesRepository;
+import com.airportSearch.airportSearch.Repositories.FlightsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,10 +16,10 @@ public class FlightsService {
     @Autowired
     CitiesRepository citiesRepository;
     FlightsRepository flightsRepository;
-    
+
     @Autowired
-    CitiesRepo citiesrepo;
-    FlightsRepo flightsrepo;
+    CitiesRepository citiesrepo;
+    FlightsRepository flightsrepo;
 
     public FlightsService (CitiesRepository citiesRepository, FlightsRepository flightsRepository){
         this.citiesRepository = citiesRepository;
@@ -31,21 +30,16 @@ public class FlightsService {
         return flightsRepository.findAll();
 
     }
-    
+
     public Flights findByFlightId(int flightID) {
-    	Optional<Flights> optional = flightsrepo.findById(flightID);
-    	
+    	Optional<Flights> optional = flightsRepository.findById(flightID);
+
     	if(!optional.isPresent()) {
     		return null;
     	} else {
     		return optional.get();
     	}
     }
-    public  List <Flights> getFlightByDepartureCity(String name){
-        return  flightsRepository.getFlightByDepartureCity(name);
-    }
-    public  List <Flights> getFlightByDepartureCityAndArrivalCity(String name){
-        return  flightsRepository. getFlightByDepartureCityAndArrivalCity(name);
-    }
+
 
 }
