@@ -41,11 +41,6 @@ public class FlightsService {
     		return optional.get();
     	}
     }
-    public  List <Flights> getFlightByDepartureCity(String name){
-        return  flightsRepository.getFlightByDepartureCity(name);
-    }
-    public  List <Flights> getFlightByDepartureCityAndArrivalCity(String name){
-        return  flightsRepository. getFlightByDepartureCityAndArrivalCity(name);
-    }
+
 
 }
