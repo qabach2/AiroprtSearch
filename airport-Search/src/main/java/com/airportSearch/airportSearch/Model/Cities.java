@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Builder
 @ToString
@@ -15,6 +14,7 @@ public class Cities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
+    @Column
     private String  name;
 
     public Cities(int id, String name) {

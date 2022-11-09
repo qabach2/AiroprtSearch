@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Builder
 @ToString
@@ -15,9 +15,13 @@ public class Flights {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String departure_City;
+    @Column
     private String arrival_city;
+    @Column
     private int departure_time;
+    @Column
     private int arrival_time;
 
     public Flights(int id, String departure_City, String arrival_city, int departure_time, int arrival_time) {
