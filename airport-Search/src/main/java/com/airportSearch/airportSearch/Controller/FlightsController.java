@@ -20,12 +20,12 @@ public  FlightsController(FlightsService flightsService){
 public  List <Flights> getAllFlights(){
     return flightsService.getAllFlights();
 }
-@GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
-    return flightsService.getFlightByDepartureCity(name);
-    }
-    @GetMapping("/{name}")
-    public List <Flights> getFlightByDepartureCityAndArrivalCity(@PathVariable ("name") String name){
-        return flightsService.getFlightByDepartureCityAndArrivalCity(name);
-    }
+//@GetMapping("/{name}")
+//    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
+//    return flightsService.getFlightByDepartureCity(name);
+//    }
+// @GetMapping("/{name}")
+//    public List <Flights> getFlightByArrivalCity(@PathVariable ("name") String name){
+//        return flightsService.getFlightByArrivalCity(name);
+//    }
 }

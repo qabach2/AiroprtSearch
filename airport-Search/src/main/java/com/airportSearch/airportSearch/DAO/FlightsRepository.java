@@ -9,7 +9,9 @@ public interface FlightsRepository extends JpaRepository<Flights,Integer> {
 
     
 
-    List<Flights> getFlightByDepartureCity(String name);
-
-    List<Flights> getFlightByDepartureCityAndArrivalCity(String name);
+//    List<Flights> getFlightByDepartureCity(String name);
+//
+//
+//
+//    List<Flights> getFlightByArrivalCity(String name);
 }

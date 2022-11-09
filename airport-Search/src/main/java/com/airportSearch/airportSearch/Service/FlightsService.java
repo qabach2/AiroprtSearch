@@ -23,11 +23,11 @@ public class FlightsService {
         return flightsRepository.findAll();
 
     }
-    public  List <Flights> getFlightByDepartureCity(String name){
-        return  flightsRepository.getFlightByDepartureCity(name);
-    }
-    public  List <Flights> getFlightByDepartureCityAndArrivalCity(String name){
-        return  flightsRepository. getFlightByDepartureCityAndArrivalCity(name);
-    }
+//    public  List <Flights> getFlightByDepartureCity(String name){
+//        return  flightsRepository.getFlightByDepartureCity(name);
+//    }
+//    public  List <Flights> getFlightByArrivalCity(String name){
+//        return  flightsRepository.getFlightByArrivalCity(name);
+//    }
 
 }
