@@ -2,13 +2,16 @@ package com.airportSearch.airportSearch.Model;
 
 import lombok.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Builder
-@ToString
+//@Builder
+//@ToString
 @Table(name = "Cities")
 public class Cities {
     @Id
@@ -17,9 +20,12 @@ public class Cities {
     @Column
     private String  name;
 
+    @OneToMany(mappedBy = "cities", cascade = CascadeType.ALL)
+    private List<Flights> flights;
     public Cities(int id, String name) {
         this.id = id;
         this.name = name;
+        this.flights = new LinkedList<Flights>();
     }
 
     public int getId() {

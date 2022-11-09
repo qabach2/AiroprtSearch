@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @NoArgsConstructor
 
@@ -23,13 +25,19 @@ public class Flights {
     private int departure_time;
     @Column
     private int arrival_time;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "id")
+    @JsonIgnore
+    Cities cities;
 
-    public Flights(int id, String departure_City, String arrival_city, int departure_time, int arrival_time) {
+    public Flights(int id, String departure_City, String arrival_city, int departure_time, int arrival_time, Cities cities) {
         this.id = id;
         this.departure_City = departure_City;
         this.arrival_city = arrival_city;
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
+        this.cities = cities;
     }
 
     public int getId() {
