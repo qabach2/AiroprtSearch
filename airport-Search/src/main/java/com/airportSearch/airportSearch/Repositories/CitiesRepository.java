@@ -9,7 +9,7 @@ import com.airportSearch.airportSearch.Model.Cities;
 
 @Repository
 public interface CitiesRepository extends JpaRepository<Cities, Integer>{
-	Optional<Cities> findByCity(int CityNumber);
-	
-	Cities findByName(String CityName);
+//	Optional<Cities> findByCity(int CityNumber);
+//
+//	Cities findByName(String CityName);
 }

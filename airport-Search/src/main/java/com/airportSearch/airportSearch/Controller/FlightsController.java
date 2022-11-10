@@ -12,19 +12,28 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/Flights")
 public class FlightsController {
-private  final FlightsService flightsService;
-@Autowired
-public  FlightsController(FlightsService flightsService){
-    this.flightsService = flightsService;
-}
-@GetMapping
-public  List <Flights> getAllFlights(){
-    return flightsService.getAllFlights();
-}
-@GetMapping({"/id"})
-public Optional<Flights> findByFlightId(@PathVariable ("id") int id){
-    return flightsService.findByFlightId(id);
+    private final FlightsService flightsService;
 
+    @Autowired
+    public FlightsController(FlightsService flightsService) {
+        this.flightsService = flightsService;
+    }
+
+    @GetMapping
+    public List<Flights> getAllFlights() {
+        return flightsService.getAllFlights();
+    }
+
+
+    @GetMapping("/{departure_city}")
+   public List<Flights> getFlightByDepartureCityName(@PathVariable("departure_city") String departure_city) {
+       return flightsService.getFlightByDepartureCityName(departure_city);
+   }
+
+   @GetMapping("/{departure_city}/{arrival_city}")
+    public List<Flights> getFlightsByDepartureAndArrival(@PathVariable("departure_city") String departureCity, @PathVariable("arrival_city") String arrivalCity) {
+        return flightsService.getFlightsByDepartureCityAndArrivalCity(departureCity, arrivalCity);
+   }
 }
 //@GetMapping("/{name}")
 //    public List <Flights> getFlightByDepartureCity(@PathVariable("name") String name){
@@ -34,4 +43,4 @@ public Optional<Flights> findByFlightId(@PathVariable ("id") int id){
 //    public List <Flights> getFlightByArrivalCity(@PathVariable ("name") String name){
 //        return flightsService.getFlightByArrivalCity(name);
 //    }
-}
+

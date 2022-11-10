@@ -8,9 +8,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
-
 @Entity
-@Builder
+//@Builder
 @ToString
 @Table(name = "Flights")
 public class Flights {
@@ -18,77 +17,30 @@ public class Flights {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private String departure_City;
+    private String departureCity; // In the database, the column name is "departure_city"
     @Column
-    private String arrival_city;
+    private String arrivalCity;
     @Column
-    private int departure_time;
+    private int departureTime;
     @Column
-    private int arrival_time;
+    private int arrivalTime;
+
+    @ManyToOne
+    @JoinColumn(name = "departure_city_id")
+    private Cities departureCityID;
+    @ManyToOne
+    @JoinColumn(name = "arrival_city_id")
+    private Cities arrivalCityID;
+
+
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "id")
-    @JsonIgnore
-    Cities cities;
+//    @ManyToOne
+//    @JoinColumn(referencedColumnName = "id")
+//    @JsonIgnore
+//   Cities cities;
 
-    public Flights(int id, String departure_City, String arrival_city, int departure_time, int arrival_time, Cities cities) {
-        this.id = id;
-        this.departure_City = departure_City;
-        this.arrival_city = arrival_city;
-        this.departure_time = departure_time;
-        this.arrival_time = arrival_time;
-        this.cities = cities;
-    }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getDeparture_City() {
-        return departure_City;
-    }
-
-    public void setDeparture_City(String departure_City) {
-        this.departure_City = departure_City;
-    }
-
-    public String getArrival_city() {
-        return arrival_city;
-    }
-
-    public void setArrival_city(String arrival_city) {
-        this.arrival_city = arrival_city;
-    }
-
-    public int getDeparture_time() {
-        return departure_time;
-    }
-
-    public void setDeparture_time(int departure_time) {
-        this.departure_time = departure_time;
-    }
-
-    public int getArrival_time() {
-        return arrival_time;
-    }
-
-    public void setArrival_time(int arrival_time) {
-        this.arrival_time = arrival_time;
-    }
-
-    @Override
-    public String toString() {
-        return "Flights{" +
-                "id=" + id +
-                ", departure_City='" + departure_City + '\'' +
-                ", arrival_city='" + arrival_city + '\'' +
-                ", departure_time=" + departure_time +
-                ", arrival_time=" + arrival_time +
-                '}';
-    }
 }
 

@@ -11,18 +11,18 @@ import java.util.List;
 
 @Service
 public class CitiesService {
-	private final CitiesRepository CR;
-	
-	public CitiesService(CitiesRepository CR) {
-		this.CR = CR;
-	}
-	
-	public List<Flights> getAllFlights(int cityID){
-		return this.findById(cityID).getFlights();
-	}
-	
-	@SuppressWarnings("deprecation")
-	public Cities findById(int id) {
-		return CR.getById(id);
-	}
+//	private final CitiesRepository CR;
+//
+//	public CitiesService(CitiesRepository CR) {
+//		this.CR = CR;
+//	}
+//
+//	public List<Flights> getAllFlights(int cityID){
+//		return this.findById(cityID).getFlights();
+//	}
+//
+//	@SuppressWarnings("deprecation")
+//	public Cities findById(int id) {
+//		return CR.getById(id);
+//	}
 }
